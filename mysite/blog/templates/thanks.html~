@@ -1,0 +1,13 @@
+<html>
+<head>
+<title>Thanks</title>
+</head>
+
+<body>
+{% for poem in poem_list %}
+	<li>{{ poem }}</li>
+{% endfor %} 
+
+
+</body>
+</html>

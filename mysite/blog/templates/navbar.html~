@@ -1,0 +1,28 @@
+<html>
+<head>
+	<title>{% block title %}Test Css{% endblock %}</title>
+	<link rel="stylesheet" type = "text/css" href="/static/css/styles.css">
+</head>
+
+<body>
+{% load extratags %}
+	<div id="wrapper">
+		<div id="head"><h1>{% get_current_time "%Y-%M-%d" as my_current_time %}
+									{{ my_current_time }}		
+		</h1></div>
+		
+		<div id="navbar">			
+			<ul>
+			{% for obj in objs %}
+				<li><a href="#" >{{ obj.category }}</a></li>
+			{% endfor %}			
+			</ul>
+		</div>
+		
+		<div id="leftsidebar"><h1>leftsidebar</h1></div>
+		<div id="content"><h1>content is here</h1></div>
+		<div id="rightsidebar"><h1>Rightsidebar</h1></div>
+		<div id="footer"><h1>Footer</h1></div>
+	</div>
+</body>
+</html>

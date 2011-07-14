@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load custom_filters %}
+{% block content %}
+		<div class="box">
+			<div id="post_top">
+				<div id="posting_date">Date : {{ posts.post_date }}</div>
+				<div id="social_buttons">
+					<div id="fb_pic">
+						<script>
+							function fbs_click() 
+							{
+								u=location.href;
+								t=document.title;
+								window.open('http://www.facebook.com/sharer.php?u='+encodeURIComponent(u)+'&t='+encodeURIComponent(t),'sharer','toolbar=0,status=0,width=626,height=436');
+								return false;
+							}
+						</script>
+						<a href="http://www.facebook.com/share.php?u=<url>" onclick="return fbs_click()" target="_blank" title="Click to share this post on Facebook.">
+							<img src="/static/img/theme/social/fb.png" alt="Share on Facebook" />
+						</a>
+					</div>
+					
+					
+					<div id="twit_pic">
+						<a href="LINKTOTWITTER/home?status=<?php the_title() ?> <?php the_permalink() ?>" title="Submit to Twitter" target="_blank">
+							<img src="/static/img/theme/social/twitter.png" alt="Share on Twitter">
+						</a>					
+					</div>
+					
+									
+				</div>			
+			</div>
+			<div id="post_image">
+				<img src="{{ posts.image }}" alt="" >
+			</div>
+			<br>
+			<div id="post_title" class="commontextformat">{{ posts.title }}</div>
+			{% autoescape off %}
+			<div id="posting">{{ posts.article|format_post }}</div>
+			{% endautoescape %}
+			<br>
+			
+			<div id="post_footer">
+				<span>Posted by {{ posts.author.all.0.name|bold|safe }} at {{ posts.post_time }}</span>
+			</div>
+			<br>
+		</div>
+{% endblock %}
+
+{% block aboutme %}
+<!--	ABOUT ME		-->
+			<div class="box">
+				<div class="commontextformat" id="archive">About Me</div>
+				<div id="profile">
+					<img src="{{ posts.author.all.0.author_image }}" alt="" >
+				</div>
+				<div class="commontextformat">
+					<div id="profile_name">{{ posts.author.all.0.name|bold|safe }}</div>
+					<div id="profile_desc">{{ posts.author.all.0.personal_desc }}</div>
+					<div id="profile_link"><a class = "namelink" href = "/author_page/{{ posts.author.all.0.name }}/">
+					View complete profile.</a></div>
+				</div>
+			</div>
+{% endblock %}
+

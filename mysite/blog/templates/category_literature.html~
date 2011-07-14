@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load custom_filters %}
+
+{% block content %}
+	
+	{% for post in posts %}
+		<div>
+			<div id="post_title">{{ post.title }}</div>
+			{% autoescape off %}
+			<div id="posting">{{ post.article|format_post }}</div>
+			{% endautoescape %}		
+		</div>
+	{% endfor %}
+{% endblock %}

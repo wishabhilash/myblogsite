@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+		<div class="box">
+			<div id="post_top">
+				<div id="ath" class="commontextformat">About the Author</div>			
+			</div>
+			<div id="author_image">
+				<img src="/static/img/theme/author/wish.jpg" alt="" >
+			</div>
+			<div id="author_name" class="commontextformat">{{ author.name }}</div>
+			{% autoescape off %}
+			<div id="author_desc" class="commontextformat">{{ author.personal_desc }}i am a good man i am a good mani am a good mani am a good mani am a good mani am a good mani am a good mani am a good mani am a good man</div>
+			{% endautoescape %}
+			<br>
+			<div class="clearer"></div>
+		</div>
+{% endblock %}
