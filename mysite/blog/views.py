@@ -65,3 +65,12 @@ def author_page(request, aname):
 		return render_to_response('author_page.html', {'author' : author, 'message' : "No author found!!!"},
 		context_instance = RequestContext(request, processors = [base_processors, tree_processors]))
 	
+def parse_url(request, year, month, title):
+	title = title.replace('_',' ')
+	posts = ArticleModel.objects.get(post_date__year = int(year), post_date__month = int(month), title__icontains = title)
+	if posts:
+		return render_to_response('post_display.html', {'posts' : posts},
+		context_instance = RequestContext(request, processors = [base_processors, tree_processors]))
+	else:
+		return render_to_response('post_display.html', {'message' : "No posts in this category yet!!!"},
+		context_instance = RequestContext(request, processors = [base_processors, tree_processors]))

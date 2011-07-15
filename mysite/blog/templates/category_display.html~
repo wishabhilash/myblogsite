@@ -5,20 +5,22 @@
 	{% if posts %}
 		{% for post in posts %}
 		<div class="box">
-			<div>
+			<div id="post_top">
 				<div id="posting_date">Date : {{ post.post_date }}</div>
-				<div></div>
 			</div>
 			<div id="post_image">
-				<div></div>
 				<img src="{{ post.image }}" alt="Post Image" >
 			</div>
-			<div id="post_title"><a href="/post_{{ post.id }}/">{{ post.title }}</a></div>
+			<br>
+			<div id="post_title"><a class="linktypetwo" href="/{{ post.post_date|urlArgFormat:post.title}}/">{{ post.title|title }}</a></div>
 			{% autoescape off %}
-			<div id="posting">{{ post.article|format_post|truncate }}</div>
+			<div id="posting">{{ post.article|linebreaksbr|truncatewords_html:20 }}</div>
 			{% endautoescape %}
 			<div id="post_footer">
-				<a href="/post_{{ post.id }}/">Read more.</a>
+				<div id="readme">
+					<a href="/{{ post.post_date|urlArgFormat:post.title}}/" class="linktypeone">Read more</a>				
+				</div>
+				<br><br>
 			</div>
 		</div>
 		{% endfor %}
