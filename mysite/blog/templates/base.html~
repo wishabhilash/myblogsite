@@ -9,6 +9,7 @@
 	<link href='http://fonts.googleapis.com/css?family=Permanent+Marker' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Molengo' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Cantarell' rel='stylesheet' type='text/css'>
+	{% block extrahead %}{% endblock %}
 </head>
 
 <body id= "body">
@@ -41,9 +42,9 @@
 									({{ month.1|length }})
 							</dt>
 							{% for post in month.1 %}
-							<ul>
+							<dd>
 								<li id="archive_post"><a class="linktypetwo" href="/post_{{ post.id }}">{{ post.title }}</a></li>
-							</ul>
+							</dd>
 							{% endfor %}
 						</dl>
 					{% endfor %} 

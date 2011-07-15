@@ -249,27 +249,19 @@ html
 
 #social_buttons
 {
-	height: 40px;
-	width: 110px;
 	background: rgba(0,0,0,0.5);
-	position: absolute;
-	margin-left: 360px;
-	margin-top: 10px;
-	border-radius: 10px;
-	-moz-border-radius: 10px;
-	-webkit-border-radius: 10px;
+	#margin-left: 415px;
+	margin-left: 375px;
+	border-radius: 0 0 0 10px;
+	-moz-border-radius: 0 0 0 10px;
+	-webkit-border-radius: 0 0 0 10px;
+	padding: 5px;
 }
 
-#fb_pic
-{
-	float: left;
-	//padding: 4px 2px 4px 4px;
-}
 
-#twit_pic
+.social_button_padding
 {
-	float: left;
-	//padding: 4px 4px 4px 2px;
+	padding: 2px 2px 2px 2px;
 }
 
 #copyright
@@ -335,7 +327,7 @@ html
 	font-size: 12px;
 	padding: 2px 5px 2px 5px;
 	position: absolute;
-	margin-left: 400px;
+	margin-left: 380px;
 	background: rgba(0,0,0,0.5);
 	border-radius: 5px;
 	-webkit-border-radius: 5px;
