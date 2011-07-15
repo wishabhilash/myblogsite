@@ -44,9 +44,11 @@
 				
 											
 			</div>
+			{% if posts.image %}
 			<div id="post_image">
 				<img src="{{ posts.image }}" alt="" >
 			</div>
+			{% endif %}
 			<br>
 			<div id="post_title" class="commontextformat">{{ posts.title }}</div>
 			{% autoescape off %}
@@ -61,7 +63,7 @@
 			<br>
 		</div>
 		
-		<div id="disqus_wrapper" class="box">
+		<div id="disqus_wrapper" class="comment-box">
 			<div style="height:5px;"></div>		
 			<div id="disqus_thread"></div>
 			<div style="height:5px;"></div>

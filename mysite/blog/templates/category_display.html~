@@ -20,7 +20,7 @@
 				<div id="readme">
 					<a href="/{{ post.post_date|urlArgFormat:post.title}}/" class="linktypeone">Read more</a>				
 				</div>
-				<br><br>
+				<br>
 			</div>
 		</div>
 		{% endfor %}

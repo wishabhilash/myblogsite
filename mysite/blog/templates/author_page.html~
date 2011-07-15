@@ -9,7 +9,7 @@
 			</div>
 			<div id="author_name" class="commontextformat">{{ author.name }}</div>
 			{% autoescape off %}
-			<div id="author_desc" class="commontextformat">{{ author.personal_desc }}i am a good man i am a good mani am a good mani am a good mani am a good mani am a good mani am a good mani am a good mani am a good man</div>
+			<div id="author_desc" class="commontextformat">{{ author.personal_desc }}</div>
 			{% endautoescape %}
 			<br>
 			<div class="clearer"></div>

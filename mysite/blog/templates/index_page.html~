@@ -31,7 +31,7 @@
 				<div id="recent_post" class="commontextformat">
 					<ol>
 					{% for post in posts %}				
-						<li id="recentpost_list"><span">{{ forloop.counter }}.</span> <a class="linktypetwo" href="/{{ post.post_date|urlArgFormat:post.title}}/">{{ post.title }}</a></li>
+						<li id="recentpost_list"><span>{{ forloop.counter }}.</span> <a class="linktypetwo" href="/{{ post.post_date|urlArgFormat:post.title}}/">{{ post.title }}</a></li>
 					{% endfor %}
 					</ol>
 				</div>

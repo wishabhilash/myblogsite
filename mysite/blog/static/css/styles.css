@@ -493,6 +493,21 @@ ul, dl
 	background-color: rgba(0,0,0,0.5);
 }
 
+#dsq-sort-by option
+{
+	color: #000;
+}
+
+#dsq-account-dropdown
+{
+	margin-right: 10px;
+}
+
+#dsq-reply h3
+{
+	margin-left: 10px;
+}
+
 
 
 /* CLASSES */
@@ -507,7 +522,7 @@ ul, dl
 	clear: both;
 }
 
-.box
+.box, .comment-box
 {
 	//background-color: rgba(77,59,45,0.85);
 	background-color: rgba(111,162,31,0.85);
@@ -518,9 +533,12 @@ ul, dl
    border-radius: 20px 0 20px 0;
    -moz-border-radius: 20px 0 20px 0;
    -webkit-border-radius: 20px 0 20px 0;
-   behaviour: url(ie-css3.htc);
 }
 
+.comment-box
+{
+	background-color: rgba(48,69,13,0.9);
+}
 
 .commontextformat, #archive_data, #searchbox, #dsq-content h3
 {

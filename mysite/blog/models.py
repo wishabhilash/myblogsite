@@ -20,11 +20,11 @@ class CategoryModel(models.Model):
 class ArticleModel(models.Model):
 	title = models.CharField(max_length = 150)
 	article = models.TextField()
-	image = models.CharField(max_length = 500)
+	image = models.CharField(max_length = 500, blank = True)
 	post_time = models.TimeField(auto_now_add = True)
 	post_date = models.DateField()
 	author = models.ManyToManyField(AuthorModel)
-	category = models.ForeignKey(CategoryModel)
+#	category = models.ForeignKey(CategoryModel)
 	
 	def __unicode__(self):
 		return self.title

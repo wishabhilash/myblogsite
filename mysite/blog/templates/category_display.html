@@ -8,9 +8,11 @@
 			<div id="post_top">
 				<div id="posting_date">Date : {{ post.post_date }}</div>
 			</div>
+			{% if post.image %}
 			<div id="post_image">
 				<img src="{{ post.image }}" alt="Post Image" >
 			</div>
+			{% endif %}
 			<br>
 			<div id="post_title"><a class="linktypetwo" href="/{{ post.post_date|urlArgFormat:post.title}}/">{{ post.title|title }}</a></div>
 			{% autoescape off %}

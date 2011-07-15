@@ -44,6 +44,7 @@
 				
 											
 			</div>
+			
 			<div id="post_image">
 				<img src="{{ posts.image }}" alt="" >
 			</div>
@@ -61,10 +62,10 @@
 			<br>
 		</div>
 		
-		<div id="disqus_wrapper" class="box">
-			<div></div>		
+		<div id="disqus_wrapper" class="comment-box">
+			<div style="height:5px;"></div>		
 			<div id="disqus_thread"></div>
-			<div></div>
+			<div style="height:5px;"></div>
 		</div>
 			
 			
