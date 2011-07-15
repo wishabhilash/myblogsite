@@ -9,16 +9,12 @@ html
 	background-color: #fff;//#f9f9f9;
 }
 
-#body
-{
-	background: url(/static/img/theme/body_background.jpg) no-repeat left center;
-	background-attachment: fixed;
-}
-
 #wrapper
 {
 	width: 980px;
 	margin: auto;
+	background: url(/static/img/theme/body_background.jpg) no-repeat center;
+	background-attachment: fixed;
 }
 
 #head
@@ -165,6 +161,7 @@ html
 {
 	font-size: 18px;
 	text-align: center;
+	background-color: rgba(0,0,0,0.5);
 }
 
 #profile_desc
@@ -396,14 +393,14 @@ html
 
 
 #posting,  #posting_date, #post_footer span,
-#archive_year, #archive_month,  .commontextformat 
+#archive_year, #archive_month,  .commontextformat, #dsq-content h3 
 {
 	text-shadow: 2px 2px 2px rgba(0,0,0,256);
 	text-decoration: none;
 }
 
 
-ul
+ul, dl
 {
 	list-style: none;
 }
@@ -484,6 +481,20 @@ ul
 
 
 
+/* DISQUS */
+#disqus-wrapper
+{ 
+	padding: 5px;
+}
+
+#disqus-thread
+{
+	padding: 5px;
+	background-color: rgba(0,0,0,0.5);
+}
+
+
+
 /* CLASSES */
 .imgsetting
 {
@@ -511,7 +522,7 @@ ul
 }
 
 
-.commontextformat, #archive_data, #searchbox
+.commontextformat, #archive_data, #searchbox, #dsq-reply h3
 {
 	font-family: 'Ubuntu',candara;
 	color: #fff;//#ECD96F;
