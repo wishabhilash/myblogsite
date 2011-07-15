@@ -18,16 +18,6 @@ months = {1 : "January",
 		  12 : "December"}
 
 
-
-@register.filter(name = 'format_post')
-def format_post(value):
-	if "\n" in value:
-		return value.replace("\n", "<br>")
-
-@register.filter(name = 'truncate')
-def truncate_post(value):
-	return value[0:100] + "..."
-
 @register.filter(name = 'display_date')
 def display_date(value):
 	year = value.date().year
@@ -58,3 +48,11 @@ def poemsinyear(value):
 	for poem in poems:
 		count += len(poem[1])
 	return count
+
+@register.filter(name = 'urlTitleArgFormat')
+def urlTitleArgFormat(value):
+	return value.lower().replace(' ','_')
+
+@register.filter(name = "urlArgFormat")
+def urlArgFormat(value, title):
+	return str(value.year)+'/'+str(value.month)+'/'+urlTitleArgFormat(title)

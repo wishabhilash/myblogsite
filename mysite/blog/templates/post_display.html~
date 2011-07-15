@@ -27,9 +27,6 @@
 						</a>					
 					</div>
 					
-					<div id="copyright">
-						<a href = "#" title="This post is copyrighted."><img src="/static/img/theme/copyright.png" alt="" ></a>
-					</div>
 									
 				</div>			
 			</div>
@@ -39,12 +36,12 @@
 			<br>
 			<div id="post_title" class="commontextformat">{{ posts.title }}</div>
 			{% autoescape off %}
-			<div id="posting">{{ posts.article|format_post }}</div>
+			<div id="posting">{{ posts.article|linebreaksbr }}</div>
 			{% endautoescape %}
 			<br>
 			
 			<div id="post_footer">
-				<span>Posted by {{ posts.author.all.0.name|bold|safe }} at {{ posts.post_time }}</span>
+				<span>Posted by <a href="/author_page/{{ posts.author.all.0.name }}" class="linktypetwo"> {{ posts.author.all.0.name|title|bold|safe }}</a> at {{ posts.post_time }}</span>
 			</div>
 			<br>
 		</div>
@@ -58,23 +55,11 @@
 					<img src="{{ posts.author.all.0.author_image }}" alt="" >
 				</div>
 				<div class="commontextformat">
-					<div id="profile_name">{{ posts.author.all.0.name|bold|safe }}</div>
-					<div id="profile_desc">{{ posts.author.all.0.personal_desc }}</div>
+					<div id="profile_name">{{ posts.author.all.0.name|title|bold|safe }}</div>
+					<div id="profile_desc">{{ posts.author.all.0.personal_desc|truncatewords_html:20 }}</div>
 					<div id="profile_link"><a class = "namelink" href = "/author_page/{{ posts.author.all.0.name }}/">
 					View complete profile.</a></div>
 				</div>
 			</div>
 {% endblock %}
 
-{% block comments %}
-		<div class="box">
-			{% load comments %}
-			{% get_comment_list for blog.articlemodel posts.id as comment_list %}
-			{% get_comment_list for posts as comment_list %}
-			
-			{% for comment in comment_list %}
-				{{ comment.comment }}
-			{% endfor %}
-			{% render_comment_form for blog.articlemodel %}
-		</div>
-{% endblock %}

@@ -1,60 +1,37 @@
 {% extends 'base.html' %}
 {% load custom_filters %}
 {% block content %}
+	{% for post in posts %}
 		<div class="box">
 			<div id="post_top">
-				<div id="posting_date">Date : {{ posts.0.post_date }}</div>
-				<div id="social_buttons">
-					<div id="fb_pic">
-						<script>
-							function fbs_click() 
-							{
-								u=location.href;
-								t=document.title;
-								window.open('http://www.facebook.com/sharer.php?u='+encodeURIComponent(u)+'&t='+encodeURIComponent(t),'sharer','toolbar=0,status=0,width=626,height=436');
-								return false;
-							}
-						</script>
-						<a href="http://www.facebook.com/share.php?u=<url>" onclick="return fbs_click()" target="_blank" title="Click to share this post on Facebook.">
-							<img src="/static/img/theme/social/fb.png" alt="Share on Facebook" />
-						</a>
-					</div>
-					
-					
-					<div id="twit_pic">
-						<a href="http://twitter.com/home?status=Currentlyreading <?php the_permalink(); ?>" title="Click to share this post on Twitter">
-							<img src="/static/img/theme/social/twitter.png" alt="Share on Twitter">
-						</a>					
-					</div>
-					
-									
-				</div>			
+				<div id="posting_date">Date : {{ post.post_date }}</div>
 			</div>
 			<div id="post_image">
 				<img src="{{ posts.0.image }}" alt="" >
 			</div>
 			<br>
-			<div id="post_title" class="commontextformat">{{ posts.0.title }}</div>
+			<div id="post_title" class="commontextformat"><a class="linktypetwo" href="/{{ post.post_date|urlArgFormat:post.title}}/">{{ post.title|title }}</a></div>
 			{% autoescape off %}
-			<div id="posting">{{ posts.0.article|format_post }}</div>
+			<div id="posting">{{ post.article|linebreaksbr }}</div>
 			{% endautoescape %}
 			<br>
 			
 			<div id="post_footer">
-				<span>Posted by {{ posts.0.author.all.0.name|bold|safe }} at {{ posts.0.post_time }}</span>
+				<span>Posted by <a href="/author_page/{{ post.author.all.0.name }}" class="linktypetwo"> {{ post.author.all.0.name|title|bold|safe }}</a> at {{ post.post_time }}</span>
 			</div>
 			<br>
 		</div>
+	{% endfor %}
 {% endblock %}
 
 {% block recentposts %}
-<!--	ABOUT ME		-->
+<!--	RECENT POSTS		-->
 			<div class="box">
 				<div class="commontextformat" id="archive">Recent Posts</div>
 				<div id="recent_post" class="commontextformat">
 					<ol>
 					{% for post in posts %}				
-						<li><a class="linktypetwo" href="/post_{{ post.id }}">{{ post.title }}</a></li>
+						<li id="recentpost_list"><span>{{ forloop.counter }}.</span> <a class="linktypetwo" href="/{{ post.post_date|urlArgFormat:post.title}}/">{{ post.title }}</a></li>
 					{% endfor %}
 					</ol>
 				</div>

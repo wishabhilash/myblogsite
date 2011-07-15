@@ -2,8 +2,9 @@
 {% load custom_tags %}
 <html>
 <head>
-	<title>{% block title %}Test Css{% endblock %}</title>
-	<link rel="stylesheet" type = "text/css" href="{{ MEDIA_URL }}css/styles.css">
+	<title>{% block title %}It's me!!! Only me!!!{% endblock %}</title>
+	<link rel="stylesheet" type = "text/css" href="{{ STATIC_URL }}css/styles.css">
+	<link href='http://img193.imageshack.us/img193/540/logoupr.png' rel='shortcut icon'>
 	<link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Permanent+Marker' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Molengo' rel='stylesheet' type='text/css'>
@@ -12,9 +13,13 @@
 
 <body id= "body">
 	<div id="wrapper">
-		<div id="logo"><img src="{{ MEDIA_URL }}img/theme/logo.png" alt="LOGO" ></div>
+		<div id="logo"><img src="{{ STATIC_URL }}img/theme/beta.gif" alt="LOGO" ></div>
+		<div id="fblike">
+			<script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script>
+			<fb:like href="wishabhilash.alwaysdata.net" send="true" layout="button_count" width="450" show_faces="true" font=""></fb:like>						
+		</div>
 		<div id="head">	
-			<div id="heading"><img src="{{ MEDIA_URL }}img/theme/blog_title.png" alt="It's Me!!! Only Me!!!" ></div>
+			<div id="heading"><img src="{{ STATIC_URL }}img/theme/blog_title.png" alt="It's Me!!! Only Me!!!" ></div>
 		</div>
 
 	<div>
@@ -24,23 +29,23 @@
 			<div class="commontextformat" id="archive">Archive</div>
 				{% for data in hdata %}
 					<div id="archive_year">
-						<img src="{{ MEDIA_URL }}img/theme/bulletdown.png" alt="" class="imgsetting">
-						<a href="#">{{ data.0 }}</a>
+						<img src="{{ STATIC_URL }}img/theme/bulletdown.png" alt="" class="imgsetting">
+						<a href="#" class="linktypetwo">{{ data.0 }}</a>
 						({{ data|poemsinyear }})
 					</div>
 					{% for month in data.1 %}
-						<ul>
-							<li id="archive_month">
-									<img src="{{ MEDIA_URL }}img/theme/bulletdown.png" alt="" class="imgsetting">
-									<a href="#">{{ month.0|convertIntoMonth }}</a>
+						<dl>
+							<dt id="archive_month">
+									<img src="{{ STATIC_URL }}img/theme/bulletdown.png" alt="" class="imgsetting">
+									<a href="#" class="linktypetwo">{{ month.0|convertIntoMonth }}</a>
 									({{ month.1|length }})
-							</li>
+							</dt>
 							{% for post in month.1 %}
 							<ul>
-								<li id="archive_post"><a href="/post_{{ post.id }}">{{ post.title }}</a></li>
+								<li id="archive_post"><a class="linktypetwo" href="/post_{{ post.id }}">{{ post.title }}</a></li>
 							</ul>
 							{% endfor %}
-						</ul>
+						</dl>
 					{% endfor %} 
 				{% endfor %} 
 			
@@ -89,7 +94,7 @@
 				<form action="/searchquery/" method="post">
 				{% csrf_token %} 
 					<div>{{ form }}</div>
-					<div id="searchicon"><img align = 'left' src="{{ MEDIA_URL }}img/theme/searchlogo.png" alt="" ></div>
+					<div id="searchicon"><img align = 'left' src="{{ STATIC_URL }}img/theme/searchlogo.png" alt="" ></div>
 				</form>			
 			</div>
 			
@@ -108,14 +113,14 @@
 			<div>
 				<div id="powers">
 					<div>&copy;&nbsp;
-					<a href = "/author_page/Wish/" class="namelink">Abhilash Nanda (Wish)</a>
+					<a href = "/author_page/Wish/" class="linktypeone">Abhilash Nanda (Wish)</a>
 					 | All posts are property of the author |&nbsp;Site powered by:</div>
-					<a href="http://www.djangoproject.com/" title="Django"><img src="{{ MEDIA_URL }}img/theme/powered_by/django.png" alt="" ></a>
-					<a href="http://www.ubuntu.com/" title="Ubuntu"><img src="{{ MEDIA_URL }}img/theme/powered_by/ubuntu.png" alt="" ></a>
-					<a href="http://www.opensource.org/" title="Open Source"><img src="{{ MEDIA_URL }}img/theme/powered_by/opensource.png" alt="" ></a>
-					<a href="http://www.w3.org/TR/html5/" title="HTML5"><img src="{{ MEDIA_URL }}img/theme/powered_by/html5.png" alt="" ></a>
-					<a href="http://www.gimp.org/" title="GIMP"><img src="{{ MEDIA_URL }}img/theme/powered_by/gimp.png" alt="" ></a>
-					<a href="http://www.alwaysdata.com/" title="Alwaysdata hosting"><img src="{{ MEDIA_URL }}img/theme/powered_by/alwaysdata.png" alt="" ></a>
+					<a href="http://www.djangoproject.com/" title="Django"><img src="{{ STATIC_URL }}img/theme/powered_by/django.png" alt="" ></a>
+					<a href="http://www.ubuntu.com/" title="Ubuntu"><img src="{{ STATIC_URL }}img/theme/powered_by/ubuntu.png" alt="" ></a>
+					<a href="http://www.opensource.org/" title="Open Source"><img src="{{ STATIC_URL }}img/theme/powered_by/opensource.png" alt="" ></a>
+					<a href="http://www.w3.org/TR/html5/" title="HTML5"><img src="{{ STATIC_URL }}img/theme/powered_by/html5.png" alt="" ></a>
+					<a href="http://www.gimp.org/" title="GIMP"><img src="{{ STATIC_URL }}img/theme/powered_by/gimp.png" alt="" ></a>
+					<a href="http://www.alwaysdata.com/" title="Alwaysdata hosting"><img src="{{ STATIC_URL }}img/theme/powered_by/alwaysdata.png" alt="" ></a>
 				</div>			
 			</div>
 		</div>	
