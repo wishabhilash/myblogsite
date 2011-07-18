@@ -44,10 +44,15 @@
 				
 											
 			</div>
-			
+			{% if posts.image %}
 			<div id="post_image">
 				<img src="{{ posts.image }}" alt="" >
 			</div>
+			{% else %}
+			<div id="post_image">
+				<img src="{{ STATIC_URL }}img/theme/defaultpic.png" alt="" >
+			</div>
+			{% endif %}
 			<br>
 			<div id="post_title" class="commontextformat">{{ posts.title }}</div>
 			{% autoescape off %}

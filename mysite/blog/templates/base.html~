@@ -14,13 +14,28 @@
 
 <body>
 	<div id="wrapper">
-		<div id="logo"><img src="{{ STATIC_URL }}img/theme/beta.gif" alt="LOGO" ></div>
+		<div id="logo"><img src="{{ STATIC_URL }}img/theme/beta.png" alt="LOGO" ></div>
 		<div id="head">	
-			<div id="heading"><img src="{{ STATIC_URL }}img/theme/blog_title.png" alt="It's Me!!! Only Me!!!" ></div>
+			<div id="heading"><a href="http://wishabhilash.in" ><img src="{{ STATIC_URL }}img/theme/blog_title.png" alt="It's Me!!! Only Me!!!" ></a></div>
 		</div>
 
 	<div>
 		<div id="leftsidebar">
+		
+			<!--			COPYSCAPE			-->
+			<div id="copyscape" class="box">
+				<div class="commontextformat" id="archive">Do not copy!!!</div>
+				<div style="text-align:center;">
+					<div style="height:5px;"></div>
+					<A HREF="http://www.copyscape.com/plagiarism-scanner/">
+					<IMG SRC="http://banners.copyscape.com/images/cs-ye-120x60.gif" ALT="Protected by Copyscape Plagiarism Scanner" 
+					TITLE="Protected by Copyscape Plagiarism Checker - Do not copy content from this page."
+					 WIDTH="120" HEIGHT="60" BORDER="0"></A>
+					 <div style="height:5px;"></div>				
+				</div>
+			</div>
+			
+			<!--			ARCHIVE			-->
 			<div class="box">
 			<div id="archive_data">
 			<div class="commontextformat" id="archive">Archive</div>
@@ -34,12 +49,12 @@
 						<dl>
 							<dt id="archive_month">
 									<img src="{{ STATIC_URL }}img/theme/bulletdown.png" alt="" class="imgsetting">
-									<a href="#" class="linktypetwo">{{ month.0|convertIntoMonth }}</a>
+									<a href="/{{ month.0 }}/" class="linktypetwo">{{ month.0|convertIntoMonth }}</a>
 									({{ month.1|length }})
 							</dt>
 							{% for post in month.1 %}
 							<dd>
-								<li id="archive_post"><a class="linktypetwo" href="/post_{{ post.id }}">{{ post.title }}</a></li>
+								<li id="archive_post"><a class="linktypetwo" href="/{{ post.post_date|urlArgFormat:post.title}}/">{{ post.title|truncatewords:4 }}</a></li>
 							</dd>
 							{% endfor %}
 						</dl>
@@ -85,7 +100,7 @@
 		<div id="rightsidebar">
 		
 		<!--	SEARCH BAR	--> 
-			<div class="box">
+		<div class="box">
 			<div class="commontextformat" id="archive">Search box</div>
 			<div id="searchbox">
 				<form action="/searchquery/" method="post">
@@ -95,7 +110,7 @@
 				</form>			
 			</div>
 			
-			</div>
+		</div>
 			
 			
 			{% block aboutme %}{% endblock %}
@@ -130,7 +145,7 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
     var disqus_shortname = 'itsmeonlyme'; // required: replace example with your forum shortname
-	var disqus_developer = 1;
+  	var disqus_developer = 0;
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function () {
         var s = document.createElement('script'); s.async = true;

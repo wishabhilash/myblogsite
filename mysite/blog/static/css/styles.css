@@ -13,14 +13,14 @@ html
 {
 	width: 980px;
 	margin: auto;
-	background: url(/static/img/theme/body_background.jpg) no-repeat center;
+	background: url(/site_media/img/theme/body_background.jpg) no-repeat center;
 	background-attachment: fixed;
 }
 
 #head
 {
 	color: white;
-	background:url(/static/img/theme/topgrad.png) repeat-x left top;
+	background:url(/site_media/img/theme/topgrad.png) repeat-x left top;
 	height: 100px;
 	margin: 0px 10px 10px 10px;
 	box-shadow: 5px 5px 10px rgba(0,0,0,0.6);
@@ -33,14 +33,15 @@ html
 
 #logo
 {
-	margin-left: -40px;
+	margin-left: 0px;
+	margin-top: -30px;
 	position: absolute;
 }
 
 #logo img
 {
 	margin: 0 0 0 10px;
-	height: 150px;
+	height: 200px;
 	//width: 170px;
 }
 
@@ -192,7 +193,7 @@ html
 {
 	color: white;
 	//background-color: rgba(77,59,45,0.85);
-	background:url(/static/img/theme/footgrad.png) repeat-x left top;
+	background:url(/site_media/img/theme/footgrad.png) repeat-x left top;
 	height: 50px;
 	//margin: 10px 10px 0 10px;
 	box-shadow: 5px 5px 5px rgba(0,0,0,0.6);
@@ -248,7 +249,7 @@ html
 {
 	background: rgba(0,0,0,0.5);
 	#margin-left: 415px;
-	margin-left: 375px;
+	margin-left: 190px;
 	border-radius: 0 0 0 10px;
 	-moz-border-radius: 0 0 0 10px;
 	-webkit-border-radius: 0 0 0 10px;

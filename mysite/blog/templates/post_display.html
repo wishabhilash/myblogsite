@@ -21,16 +21,12 @@
 								<fb:like href="" send="false" layout="button_count" width="70" show_faces="true" font="Ubuntu"></fb:like>
 							</div>
 						</td>
-					</tr>
-					<tr>
 						<td>
 							<div class="social_button_padding">
 								<a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal"></a>
 								<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>					
 							</div>
 						</td>
-					</tr>
-					<tr>
 						<td>
 							<div class="social_button_padding">
 								<g:plusone size="medium"></g:plusone>
@@ -47,6 +43,10 @@
 			{% if posts.image %}
 			<div id="post_image">
 				<img src="{{ posts.image }}" alt="" >
+			</div>
+			{% else %}
+			<div id="post_image">
+				<img src="{{ STATIC_URL }}img/theme/defaultpic.png" alt="" >
 			</div>
 			{% endif %}
 			<br>

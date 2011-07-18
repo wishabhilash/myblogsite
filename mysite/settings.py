@@ -1,5 +1,5 @@
 # Django settings for mysite project.
-import os
+import os, sys
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -13,9 +13,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
         'NAME': 'wishabhilash_blog',                      # Or path to database file if using sqlite3.
-        'USER': 'root',#'wishabhilash',                      # Not used with sqlite3.
-        'PASSWORD': 'wish',#'chicken',                  # Not used with sqlite3.
-        'HOST': '',#'mysql.alwaysdata.com',                      # Set to empty string for localhost. Not used with sqlite3.
+        'USER': 'root' if 'runserver' in sys.argv else 'wishabhilash',                      # Not used with sqlite3.
+        'PASSWORD': 'wish' if 'runserver' in sys.argv else 'chicken',                  # Not used with sqlite3.
+        'HOST': '' if 'runserver' in sys.argv else 'mysql.alwaysdata.com',                      # Set to empty string for localhost. Not used with sqlite3.
         'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
     }
 }
@@ -68,12 +68,12 @@ STATIC_ROOT = os.path.join(SITE_ROOT, 'public','site_media')
 # Example: "http://media.lawrence.com/static/"
 
 
-STATIC_URL = '/static/'
+STATIC_URL = '/site_media/'
 
 # URL prefix for admin static files -- CSS, JavaScript and images.
 # Make sure to use a trailing slash.
 # Examples: "http://foo.com/static/admin/", "/static/admin/".
-ADMIN_MEDIA_PREFIX = '/static/admin/'
+ADMIN_MEDIA_PREFIX = '/site_media/admin/'
 #ADMIN_MEDIA_PREFIX = '/media/'
 
 # Additional locations of static files
