@@ -20,14 +20,6 @@
 				$(this).toggleClass("opened");
 				$(this).toggleClass("darkRoundedBack");
 			})
-		})
-		
-		$(function()
-		{		
-			$("a").click(function()
-			{
-				$("*").fadeIn(1000);
-			})
 		})		
 	</script>
 	{% block extrahead %}{% endblock %}
@@ -63,12 +55,12 @@
 				<ul class="archive_year">
 					{% for data in hdata %}
 						<li>
-							<span class="trigger"><a href="#" class="linktypetwo">{{ data.0 }}</a>
+							<span class="trigger"><a href='javascript:void(0);' class="linktypetwo">{{ data.0 }}</a>
 							({{ data|poemsinyear }})</span>
 							<ul class="hideThis">
 								{% for month in data.1 %}
 								<li class="archive_month">
-									<span class="trigger"><a href="#" class="linktypetwo">{{ month.0|convertIntoMonth }}</a>
+									<span class="trigger"><a href='javascript:void(0);' class="linktypetwo">{{ month.0|convertIntoMonth }}</a>
 									({{ month.1|length }})</span>
 									<ul class="hideThis">
 									{% for post in month.1 %}
