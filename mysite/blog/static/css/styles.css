@@ -238,10 +238,6 @@ html
 	margin-top: 15px;
 	padding: 2px 5px 2px 5px;
 	position: absolute;
-	background: rgba(0,0,0,0.5);
-	border-radius: 5px;
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
 	margin-left: 20px;
 }
 
@@ -326,21 +322,13 @@ html
 	padding: 2px 5px 2px 5px;
 	position: absolute;
 	margin-left: 380px;
-	background: rgba(0,0,0,0.5);
-	border-radius: 5px;
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
 }
 
 #post_footer span
 {
 	font-size: 12px;
 	margin-right: 20px;
-	background: rgba(0,0,0,0.5);
 	padding: 2px 5px 2px 5px;
-	border-radius: 5px;
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
 }
 
 #post_title, #posting, #post_footer
@@ -357,31 +345,31 @@ html
 
 
 /* HIERARCHY STRUCTURE */
-#archive
+.box_heading
 {
 	text-align: center;
 	font-size: 20px;
 	font-weight: bold;
 }
 
-#archive_year
+.archive_year
 {
 	margin-left: 10px;	
 }
 
-#archive_month
+.archive_month
 {
 	padding-top: 5px;
 	margin-left: 20px;
 	font-size: 13px;
 }
 
-#archive_post
+.archive_post
 {
-	margin-left: 30px;
+	margin-left: 10px;
 }
 
-#archive_post a
+.archive_post a
 {
 	font-size: 11px;
 	margin-left: 5px;
@@ -394,7 +382,7 @@ html
 
 
 #posting,  #posting_date, #post_footer span,
-#archive_year, #archive_month,  .commontextformat, #dsq-content h3 
+.archive_year, .archive_month,  .commontextformat, #dsq-content h3, .box_heading 
 {
 	text-shadow: 2px 2px 2px rgba(0,0,0,256);
 	text-decoration: none;
@@ -541,7 +529,7 @@ ul, dl
 	background-color: rgba(48,69,13,0.9);
 }
 
-.commontextformat, #archive_data, #searchbox, #dsq-content h3
+.commontextformat, #archive_data, #searchbox, #dsq-content h3, .box_heading
 {
 	font-family: 'Ubuntu',candara;
 	color: #fff;//#ECD96F;
@@ -576,4 +564,33 @@ a.linktypeone:hover
 a.linktypetwo:hover
 {
 	color: #EE9412;
+}
+
+.hideThis
+{
+	display: none;
+}
+
+.darkRoundedBack
+{
+	background: rgba(0,0,0,0.5);
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;	
+}
+
+.opened
+{
+	padding-left: 12px;
+	background-image: url(/site_media/img/theme/bulletdown.png);
+	background-position: center left;
+	background-repeat: no-repeat;
+}
+
+.trigger
+{
+	padding-left: 12px;
+	background-image: url(/site_media/img/theme/bullet.png);
+	background-position: center left;
+	background-repeat: no-repeat;
 }

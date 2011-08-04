@@ -20,7 +20,7 @@
 			<br>
 			<div id="post_title"><a class="linktypetwo" href="/{{ post.post_date|urlArgFormat:post.title}}/">{{ post.title|title }}</a></div>
 			{% autoescape off %}
-			<div id="posting">{{ post.article|linebreaksbr|truncatewords_html:30 }}</div>
+			<div id="posting">{{ post.article|linebreaksbr|truncatewords_html:40 }}</div>
 			{% endautoescape %}
 			<div id="post_footer">
 				<div id="readme">

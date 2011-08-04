@@ -4,7 +4,7 @@
 	{% for post in posts %}
 		<div class="box">
 			<div id="post_top">
-				<div id="posting_date">Date : {{ post.post_date }}</div>
+				<div id="posting_date" class="darkRoundedBack">Date : {{ post.post_date }}</div>
 			</div>
 			{% if posts.0.image %}
 			<div id="post_image">
@@ -23,7 +23,7 @@
 			<br>
 			
 			<div id="post_footer">
-				<span>Posted by <a href="/author_page/{{ post.author.all.0.name }}" class="linktypetwo"> {{ post.author.all.0.name|title|bold|safe }}</a> at {{ post.post_time }}</span>
+				<span class="darkRoundedBack">Posted by <a href="/author_page/{{ post.author.all.0.name }}" class="linktypetwo"> {{ post.author.all.0.name|title|bold|safe }}</a> at {{ post.post_time }}</span>
 			</div>
 			<br>
 		</div>
@@ -33,7 +33,7 @@
 {% block recentposts %}
 <!--	RECENT POSTS		-->
 			<div class="box">
-				<div class="commontextformat" id="archive">Recent Posts</div>
+				<div class="box_heading">Recent Posts</div>
 				<div id="recent_post" class="commontextformat">
 					<ol>
 					{% for post in posts %}				

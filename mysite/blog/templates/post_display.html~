@@ -9,7 +9,7 @@
 		<div class="box">
 					
 			<div id="post_top">
-				<div id="posting_date">Date : {{ posts.post_date }}</div>
+				<div id="posting_date" class="darkRoundedBack">Date : {{ posts.post_date }}</div>
 
 				<div id="social_buttons">
 				<table summary="" >
@@ -21,16 +21,12 @@
 								<fb:like href="" send="false" layout="button_count" width="70" show_faces="true" font="Ubuntu"></fb:like>
 							</div>
 						</td>
-					</tr>
-					<tr>
 						<td>
 							<div class="social_button_padding">
 								<a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal"></a>
 								<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>					
 							</div>
 						</td>
-					</tr>
-					<tr>
 						<td>
 							<div class="social_button_padding">
 								<g:plusone size="medium"></g:plusone>
@@ -98,7 +94,7 @@
 {% block aboutme %}
 <!--	ABOUT ME		-->
 			<div class="box">
-				<div class="commontextformat" id="archive">About Me</div>
+				<div class="box_heading">About Me</div>
 				<div id="profile">
 					<img src="{{ posts.author.all.0.author_image }}" alt="" >
 				</div>

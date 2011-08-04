@@ -9,6 +9,19 @@
 	<link href='http://fonts.googleapis.com/css?family=Permanent+Marker' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Molengo' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Cantarell' rel='stylesheet' type='text/css'>
+
+	<script type="text/javascript" src="{{ STATIC_URL }}js/jquery-1.6.2.js"></script>
+	<script type="text/javascript" >
+		$(function()
+		{
+			$("span.trigger").click(function()
+			{
+				$(this).next().toggle(200);
+				$(this).toggleClass("opened");
+				$(this).toggleClass("darkRoundedBack");
+			})
+		})		
+	</script>
 	{% block extrahead %}{% endblock %}
 </head>
 
@@ -24,7 +37,7 @@
 		
 			<!--			COPYSCAPE			-->
 			<div id="copyscape" class="box">
-				<div class="commontextformat" id="archive">Do not copy!!!</div>
+				<div class="box_heading">Do not copy!!!</div>
 				<div style="text-align:center;">
 					<div style="height:5px;"></div>
 					<A HREF="http://www.copyscape.com/plagiarism-scanner/">
@@ -38,53 +51,29 @@
 			<!--			ARCHIVE			-->
 			<div class="box">
 			<div id="archive_data">
-			<div class="commontextformat" id="archive">Archive</div>
-				{% for data in hdata %}
-					<div id="archive_year">
-						<img src="{{ STATIC_URL }}img/theme/bulletdown.png" alt="" class="imgsetting">
-						<a href="#" class="linktypetwo">{{ data.0 }}</a>
-						({{ data|poemsinyear }})
-					</div>
-					{% for month in data.1 %}
-						<dl>
-							<dt id="archive_month">
-									<img src="{{ STATIC_URL }}img/theme/bulletdown.png" alt="" class="imgsetting">
-									<a href="/{{ data.0 }}/{{ month.0 }}/" class="linktypetwo">{{ month.0|convertIntoMonth }}</a>
-									({{ month.1|length }})
-							</dt>
-							{% for post in month.1 %}
-							<dd>
-								<li id="archive_post"><a class="linktypetwo" href="/{{ post.post_date|urlArgFormat:post.title}}/">{{ post.title|truncatewords:4 }}</a></li>
-							</dd>
-							{% endfor %}
-						</dl>
-					{% endfor %} 
-				{% endfor %} 
-			
-			
-			
-<!--			{% comment %}<div id="archive_year">
-				<ul>
-					{% for year in year_list %}
-						<li>{{ year }}</li>
-						<ul>
-						{% for data in hdata %}
-							{% ifequal data.post_date.year year %}
-								{% ifequal data.post_date.month monthstore %}
-									<li id="archive_month">{{ data.post_date.month|convertIntoMonth }}</li>
-								{% endifequal %}
-									{% assign data.post_date.month as monthstore %}
-									{{ monthstore }}
-								
-							{% endifequal %}
-						{% endfor %}
-						</ul> 							
+				<div class="box_heading">Archive</div>
+				<ul class="archive_year">
+					{% for data in hdata %}
+						<li>
+							<span class="trigger"><a href="#" class="linktypetwo">{{ data.0 }}</a>
+							({{ data|poemsinyear }})</span>
+							<ul class="hideThis">
+								{% for month in data.1 %}
+								<li class="archive_month">
+									<span class="trigger"><a href="#" class="linktypetwo">{{ month.0|convertIntoMonth }}</a>
+									({{ month.1|length }})</span>
+									<ul class="hideThis">
+									{% for post in month.1 %}
+										<li class="archive_post"><a class="linktypetwo" href="/{{ post.post_date|urlArgFormat:post.title}}/">{{ post.title|truncatewords:4 }}</a></li>
+									{% endfor %}
+									</ul>
+								</li>	
+								{% endfor %}
+							</ul>
+						</li>					 
 					{% endfor %}
-				</ul>				
-			</div>{% endcomment %}-->
-
+				</ul> 
 			</div>
-			
 			</div>
 		</div>
 
@@ -101,7 +90,7 @@
 		
 		<!--	SEARCH BAR	--> 
 		<div class="box">
-			<div class="commontextformat" id="archive">Search box</div>
+			<div class="box_heading">Search box</div>
 			<div id="searchbox">
 				<form action="/searchquery/" method="post">
 				{% csrf_token %} 
