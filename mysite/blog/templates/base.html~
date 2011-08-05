@@ -20,7 +20,7 @@
 				$(this).toggleClass("opened");
 				$(this).toggleClass("darkRoundedBack");
 			})
-		})		
+		})
 	</script>
 	{% block extrahead %}{% endblock %}
 </head>
@@ -92,7 +92,7 @@
 		<div class="box">
 			<div class="box_heading">Search box</div>
 			<div id="searchbox">
-				<form action="/searchquery/" method="post">
+				<form action="/searchquery/" method="get">
 				{% csrf_token %} 
 					<div>{{ form }}</div>
 					<div id="searchicon"><img align = 'left' src="{{ STATIC_URL }}img/theme/searchlogo.png" alt="" ></div>

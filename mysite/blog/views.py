@@ -6,12 +6,26 @@ from processors import *
 from forms import *
 from django.core.context_processors import csrf
 from django.db.models import Q
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+
 
 def index(request):
 	if ArticleModel.objects.all():
-		posts = ArticleModel.objects.all().order_by('-post_date')[:10] or ArticleModel.objects.all().order_by('-post_date')
+		post = ArticleModel.objects.all().order_by('-post_date')
+		paginator = Paginator(post, 5)
+		if request.GET.get('page'):
+			page_no = request.GET.get('page')
+		else:
+			page_no = 1
+		try:
+			posts = paginator.page(page_no)
+		except PageNotAnInteger:
+			posts = paginator.page(1)
+		except EmptyPage:
+			posts = paginator.page(paginator.num_pages)
+		
 	else:
-		posts = []
+		post = []
 	return render_to_response('index_page.html', 
 	context_instance = RequestContext(request, {'posts' : posts}, processors = [base_processors, tree_processors]))
 
@@ -35,20 +49,22 @@ def search_query(request, site_template):
 	if request.method == 'POST':
 		form = SearchForm(request.POST)
 		if form.is_valid():
-			#result = []
-			#res = []
-			#data = list(form.cleaned_data['search_box'].split())
 			data = form.cleaned_data['search_box']
-	
-			#for dat in data:
 			result = (ArticleModel.objects.filter(Q(title__icontains = data)|Q(article__icontains = data))).order_by('-post_date')
-				#res.append(ArticleModel.objects.filter(article__icontains = dat))
-			'''for objs in res:
-				for obj in objs:
-					if obj not in result:
-						result.append(obj)'''
+			paginator = Paginator(result, 10)
+			if request.GET.get('page'):
+				page_no = request.GET.get('page')
+			else:
+				page_no = 1
+			try:
+				posts = paginator.page(page_no)
+			except PageNotAnInteger:
+				posts = paginator.page(1)
+			except EmptyPage:
+				posts = paginator.page(paginator.num_pages)
+			
 			if result:		
-				return render_to_response(site_template, {'posts' : result, 'message' : "yes i m working"},
+				return render_to_response(site_template, {'posts' : result, 'query' : data, 'message' : "yes i m working"},
 				context_instance = RequestContext(request, processors = [base_processors, tree_processors]))
 			else:
 				return render_to_response(site_template, {'message' : "No posts in this category yet!!!"},

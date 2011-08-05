@@ -56,3 +56,7 @@ def urlTitleArgFormat(value):
 @register.filter(name = "urlArgFormat")
 def urlArgFormat(value, title):
 	return str(value.year)+'/'+str(value.month)+'/'+urlTitleArgFormat(title)
+
+@register.filter(name = "doublequotify")
+def dquote(value):
+	return '"' + value + '"'

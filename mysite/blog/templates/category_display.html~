@@ -2,11 +2,15 @@
 {% load custom_filters %}
 
 {% block content %}
+	<div class="darkRoundedBack topresultheading commontextformat">
+		The results for your query {{ query|doublequotify|bold|safe }}.
+	</div>	
+	
 	{% if posts %}
-		{% for post in posts %}
+		{% for post in posts.object_list %}
 		<div class="box">
 			<div id="post_top">
-				<div id="posting_date">Date : {{ post.post_date }}</div>
+				<div id="posting_date" class="darkRoundedBack">Date : {{ post.post_date }}</div>
 			</div>
 			{% if post.image %}
 			<div id="post_image">
@@ -23,7 +27,7 @@
 			<div id="posting">{{ post.article|linebreaksbr|truncatewords_html:40 }}</div>
 			{% endautoescape %}
 			<div id="post_footer">
-				<div id="readme">
+				<div id="readme" class="darkRoundedBack">
 					<a href="/{{ post.post_date|urlArgFormat:post.title}}/" class="linktypeone">Read more</a>				
 				</div>
 				<br>
@@ -38,4 +42,28 @@
 		</div>
 	{% endif %}
 	
+	
+	<div class="darkRoundedBack pagination">
+    <ul class="step-links">
+			{% if posts.has_previous %}			
+			<li id="newer">
+				<a href="?page={{ posts.previous_page_number }}" class="linktypetwo pagelinkmargin"><< Previous</a>
+			</li>
+			{% else %}
+			<li id="newer"></li>
+			{% endif %}
+			
+			<li class="current commontextformat" id="current">
+				Page {{ posts.number }}
+			</li>
+			
+			{% if posts.has_next %}
+			<li id="older">    		
+				<a href="?page={{ posts.next_page_number }}" class="linktypetwo pagelinkmargin">Next >></a>
+			</li>
+			{% else %}
+			<li id="older"></li>
+			{% endif %}
+    </ul>
+	</div>
 {% endblock %}

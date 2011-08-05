@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 {% load custom_filters %}
 {% block content %}
-	{% for post in posts %}
+	{% for post in posts.object_list %}
 		<div class="box">
 			<div id="post_top">
-				<div id="posting_date">Date : {{ post.post_date }}</div>
+				<div id="posting_date" class="darkRoundedBack">Date : {{ post.post_date }}</div>
 			</div>
 			{% if posts.0.image %}
 			<div id="post_image">
@@ -28,6 +28,26 @@
 			<br>
 		</div>
 	{% endfor %}
+	
+	<div class="darkRoundedBack pagination">
+    <ul class="step-links">
+    		<li id="older">
+    		{% if posts.has_next %}
+				<a href="?page={{ posts.next_page_number }}" class="linktypetwo pagelinkmargin">Older</a>
+			{% endif %}
+			</li>
+			
+			<li class="current commontextformat" id="current">
+				Page {{ posts.number }}
+			</li>
+			
+			<li id="newer">
+			{% if posts.has_previous %}
+				<a href="?page={{ posts.previous_page_number }}" class="linktypetwo pagelinkmargin">Newer</a>
+			{% endif %}
+			</li>
+    </ul>
+</div>
 {% endblock %}
 
 {% block recentposts %}
@@ -36,7 +56,7 @@
 				<div class="box_heading">Recent Posts</div>
 				<div id="recent_post" class="commontextformat">
 					<ol>
-					{% for post in posts %}				
+					{% for post in posts.object_list %}				
 						<li id="recentpost_list"><span>{{ forloop.counter }}.</span> <a class="linktypetwo" href="/{{ post.post_date|urlArgFormat:post.title}}/">{{ post.title }}</a></li>
 					{% endfor %}
 					</ol>
