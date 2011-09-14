@@ -6,9 +6,9 @@
 			<div id="post_top">
 				<div id="posting_date" class="darkRoundedBack">Date : {{ post.post_date }}</div>
 			</div>
-			{% if posts.0.image %}
+			{% if posts.image %}
 			<div id="post_image">
-				<img src="{{ posts.0.image }}" alt="" >
+				<img src="{{ post.image }}" alt="" >
 			</div>
 			{% else %}
 			<div id="post_image">
@@ -47,7 +47,7 @@
 			{% endif %}
 			</li>
     </ul>
-</div>
+	</div>
 {% endblock %}
 
 {% block recentposts %}
@@ -56,7 +56,7 @@
 				<div class="box_heading">Recent Posts</div>
 				<div id="recent_post" class="commontextformat">
 					<ol>
-					{% for post in posts.object_list %}				
+					{% for post in article_posts %}		
 						<li id="recentpost_list"><span>{{ forloop.counter }}.</span> <a class="linktypetwo" href="/{{ post.post_date|urlArgFormat:post.title}}/">{{ post.title }}</a></li>
 					{% endfor %}
 					</ol>

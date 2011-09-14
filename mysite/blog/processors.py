@@ -4,8 +4,12 @@ from forms import *
 def base_processors(request):
 	categories = CategoryModel.objects.all()
 	form = SearchForm()
-	return {'categories' : categories, "form":form}
+	return {'categories' : categories, "form":form, 'current_path' : request.get_full_path()}
 
+def recent_posts_processor(request):
+	article_posts = ArticleModel.objects.all().order_by('-post_date')[:10]
+	return {"article_posts" : article_posts}
+	
 def tree_processors(request):
 	objs = ArticleModel.objects.values('post_date').order_by('-post_date')
 	years = []
@@ -34,3 +38,4 @@ def tree_processors(request):
 		if not obj.post_date.year in year_list:
 			year_list.append(obj.post_date.year)
 	return {'hdata' : objs, "year_list" : year_list}'''
+

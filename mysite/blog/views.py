@@ -27,7 +27,7 @@ def index(request):
 	else:
 		post = []
 	return render_to_response('index_page.html', 
-	context_instance = RequestContext(request, {'posts' : posts}, processors = [base_processors, tree_processors]))
+	context_instance = RequestContext(request, {'posts' : posts}, processors = [base_processors, tree_processors, recent_posts_processor]))
 
 
 def cp_view(request, site_template, ids = None, categ = None):
@@ -65,10 +65,10 @@ def search_query(request, site_template):
 			
 			if result:		
 				return render_to_response(site_template, {'posts' : result, 'query' : data, 'message' : "yes i m working"},
-				context_instance = RequestContext(request, processors = [base_processors, tree_processors]))
+				context_instance = RequestContext(request, processors = [base_processors, tree_processors, recent_posts_processor]))
 			else:
 				return render_to_response(site_template, {'message' : "No posts in this category yet!!!"},
-				context_instance = RequestContext(request, processors = [base_processors, tree_processors]))
+				context_instance = RequestContext(request, processors = [base_processors, tree_processors, recent_posts_processor]))
 	else:
 		form = SearchForm()
 	c['form'] = form
@@ -88,13 +88,13 @@ def parse_url(request, year, month, title):
 	posts = ArticleModel.objects.get(post_date__year = int(year), post_date__month = int(month), title__icontains = title)
 	if posts:
 		return render_to_response('post_display.html', {'posts' : posts},
-		context_instance = RequestContext(request, processors = [base_processors, tree_processors]))
+		context_instance = RequestContext(request, processors = [base_processors, tree_processors, recent_posts_processor]))
 	else:
 		return render_to_response('post_display.html', {'message' : "No posts in this category yet!!!"},
-		context_instance = RequestContext(request, processors = [base_processors, tree_processors]))
+		context_instance = RequestContext(request, processors = [base_processors, tree_processors, recent_posts_processor]))
 
 def parse_month_url(request, year, month):
 	posts = ArticleModel.objects.filter(post_date__year = int(year), post_date__month = int(month)).order_by('-post_date')
 	if posts:
 		return render_to_response('category_display.html', {'posts' : posts},
-		context_instance = RequestContext(request, processors = [base_processors, tree_processors]))
+		context_instance = RequestContext(request, processors = [base_processors, tree_processors, recent_posts_processor]))

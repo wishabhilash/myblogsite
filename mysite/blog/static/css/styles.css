@@ -20,12 +20,12 @@ html
 #head
 {
 	color: white;
-	background:url(/site_media/img/theme/topgrad.png) repeat-x left top;
 	height: 100px;
 	margin: 0px 10px 10px 10px;
-	box-shadow: 5px 5px 10px rgba(0,0,0,0.6);
-	-webkit-box-shadow: 5px 5px 10px rgba(0,0,0,0.6);
-   -moz-box-shadow: 5px 5px 10px rgba(0,0,0,0.6);
+	background-color: rgba(111,162,31,0.85);
+	box-shadow: 5px 5px 10px rgba(0,0,0,0.6), inset 0px 50px 80px rgba(0,0,0,0.6);
+	-webkit-box-shadow: 5px 5px 10px rgba(0,0,0,0.6), inset 0px 50px 80px rgba(0,0,0,0.6);
+   -moz-box-shadow: 5px 5px 10px rgba(0,0,0,0.6), inset 0px 30px 80px rgba(0,0,0,0.6);
    border-radius: 0 0 20px 20px;
    -moz-border-radius: 0 0 20px 20px;
    -webkit-border-radius: 0 0 20px 20px;
@@ -35,6 +35,7 @@ html
 {
 	margin-left: 0px;
 	margin-top: -30px;
+	border: 0;
 	position: absolute;
 }
 
@@ -192,13 +193,11 @@ html
 #footer
 {
 	color: white;
-	//background-color: rgba(77,59,45,0.85);
-	background:url(/site_media/img/theme/footgrad.png) repeat-x left top;
 	height: 50px;
-	//margin: 10px 10px 0 10px;
-	box-shadow: 5px 5px 5px rgba(0,0,0,0.6);
-	-webkit-box-shadow: 5px 5px 10px rgba(0,0,0,0.6);
-   -moz-box-shadow: 5px 5px 10px rgba(0,0,0,0.6);
+	background-color: rgba(111,162,31,0.85);
+	box-shadow: 5px 5px 10px rgba(0,0,0,0.6), inset 0px -30px 80px rgba(0,0,0,0.6);
+	-webkit-box-shadow: 5px 5px 10px rgba(0,0,0,0.6), inset 0px -30px 80px rgba(0,0,0,0.6);
+   -moz-box-shadow: 5px 5px 10px rgba(0,0,0,0.6), inset 0px -30px 80px rgba(0,0,0,0.6);
    border-radius: 20px 20px 0 0;
    -moz-border-radius: 20px 20px 0 0;
    -webkit-border-radius: 20px 20px 0 0;
@@ -381,7 +380,7 @@ html
 }
 
 
-#posting,  #posting_date, #post_footer span,
+#posting,  #posting_date, #post_footer span,.dsq-commenter-name, .dsq-comment-text,
 .archive_year, .archive_month,  .commontextformat, #dsq-content h3, .box_heading 
 {
 	text-shadow: 2px 2px 2px rgba(0,0,0,256);
@@ -505,6 +504,9 @@ ul, dl
 	margin-left: 10px;
 }
 
+	
+
+
 
 /* PAGINATOR */
 .pagination
@@ -547,6 +549,7 @@ ul, dl
 
 
 
+
 /* CLASSES */
 .imgsetting
 {
@@ -561,12 +564,11 @@ ul, dl
 
 .box, .comment-box
 {
-	//background-color: rgba(77,59,45,0.85);
-	background-color: rgba(111,162,31,0.85);
 	margin: 10px;
-	box-shadow: 5px 5px 5px rgba(0,0,0,0.6);
-	-webkit-box-shadow: 5px 5px 5px rgba(0,0,0,0.6);
-   -moz-box-shadow: 5px 5px 10px rgba(0,0,0,0.6);
+	background-color: rgba(111,162,31,0.85);
+	box-shadow: 5px 5px 10px rgba(0,0,0,0.6), inset 0px 50px 80px rgba(0,0,0,0.6);
+	-webkit-box-shadow: 5px 5px 10px rgba(0,0,0,0.6), inset 0px 50px 80px rgba(0,0,0,0.6);
+   -moz-box-shadow: 5px 5px 10px rgba(0,0,0,0.6), inset 0px 50px 80px rgba(0,0,0,0.6);
    border-radius: 20px 0 20px 0;
    -moz-border-radius: 20px 0 20px 0;
    -webkit-border-radius: 20px 0 20px 0;
@@ -577,7 +579,7 @@ ul, dl
 	background-color: rgba(48,69,13,0.9);
 }
 
-.commontextformat, #archive_data, #searchbox, #dsq-content h3, .box_heading
+.commontextformat, #archive_data, #searchbox, #dsq-content h3, .box_heading, .dsq-commenter-name, .dsq-comment-text
 {
 	font-family: 'Ubuntu',candara;
 	color: #fff;//#ECD96F;
