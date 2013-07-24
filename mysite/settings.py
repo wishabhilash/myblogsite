@@ -13,9 +13,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
         'NAME': 'wishabhilash_blog',                      # Or path to database file if using sqlite3.
-        'USER': 'root' if 'runserver' in sys.argv else 'wishabhilash',                      # Not used with sqlite3.
-        'PASSWORD': 'wish' if 'runserver' in sys.argv else 'chicken',                  # Not used with sqlite3.
-        'HOST': '' if 'runserver' in sys.argv else 'mysql.alwaysdata.com',                      # Set to empty string for localhost. Not used with sqlite3.
+        'USER': 'root' if 'runserver' in sys.argv else '',                      # Not used with sqlite3.
+        'PASSWORD': 'wish' if 'runserver' in sys.argv else '',                  # Not used with sqlite3.
+        'HOST': '' if 'runserver' in sys.argv else '',                      # Set to empty string for localhost. Not used with sqlite3.
         'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
     }
 }
